@@ -1,5 +1,8 @@
 body{
     margin: 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 table, tr, td{
@@ -9,4 +12,9 @@ table, tr, td{
 td{
     width: 200px;
     height: 200px;
+    text-align: center;
+    font-size: 150px;
+}
+td:hover{
+    background-color: grey;
 }
