@@ -22,11 +22,11 @@ function znak(id){
    if(intId < 6 && intId > 2) plansza [1][intId%3] = znaczek
    if(intId >= 6) plansza [2][intId%3] = znaczek
 
-   document.getElementById(id).innerHTML = znaczek
+   //document.getElementById(id).innerHTML = znaczek
 
    document.getElementById(id).removeAttribute("onclick")
 
-   console.log(plansza)
+   generujPlansze()
    czyWygrana()
 }
 
@@ -37,10 +37,40 @@ function czyWygrana(){
             blokujPlansze()
         }
     }
+    for(let i=0;i<=2;i++){
+        if(plansza[0][i]==plansza[1][i] && plansza[0][i]==plansza[2][i] && plansza[0][i]!=undefined){
+            console.log("Wygrana")
+            blokujPlansze()
+        }
+    }
+    if(plansza[0][0]==plansza[1][1] && plansza[0][0]==plansza[2][2] && plansza[0][0]!=undefined){
+        console.log("Wygrana")
+        blokujPlansze()
+    }
+    if(plansza[0][2]==plansza[1][1] && plansza[1][1]==plansza[2][0] && plansza[2][0]!=undefined){
+        console.log("Wygrana")
+        blokujPlansze()
+    }
 }
 
 function blokujPlansze(){
     for(let i=1;i<=9;i++){
         document.getElementById(i.toString()).removeAttribute("onclick")
+    }
+}
+
+function generujPlansze(){
+var licznik2 = 1
+    console.log("---------")
+    for(let i=0;i<=2;i++){
+
+        for(let j=0;j<=2;j++){
+            console.log(plansza[i][j])
+
+            if(plansza[i][j]!=undefined){
+            document.getElementById(licznik2.toString()).innerHTML = plansza[i][j]
+            }
+            licznik2++
+        }
     }
 }
